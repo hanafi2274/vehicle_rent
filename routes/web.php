@@ -36,3 +36,5 @@ Route::post('/orderService', [ServiceController::class, 'orderService'])->name('
 Route::post('/approveUsage', [UsageController::class, 'approve'])->name('approveUsage')->middleware('checkRole:head manager,branch manager');
 Route::post('/approveService', [ServiceController::class, 'approve'])->name('approveService')->middleware('checkRole:head manager,branch manager');
 Route::get('/export', [UsageController::class, 'export_excel'])->name('export')->middleware('checkRole:head manager,branch manager');
+Route::get('/gas_usageView/{id}', [UsageController::class, 'gas_usageView'])->name('gas_usageView')->middleware('checkRole:admin');
+Route::post('/gas_usage', [UsageController::class, 'gas_usage'])->name('gas_usage')->middleware('checkRole:admin');

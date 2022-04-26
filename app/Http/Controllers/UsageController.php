@@ -101,4 +101,29 @@ class UsageController extends Controller
 	{
 		return Excel::download(new usageExport, 'usage.xlsx');
 	}
+
+    public function gas_usageView($id)
+	{
+		return view("bbm")->with(compact('id'));
+	}
+    public function gas_usage(Request $request)
+	{
+        $gas_usage = gas_usage::create([
+            'liter_per_day' => $request->jumlah,
+            'usage_id' => $request->id,
+    
+            
+          
+        ]);
+        if($gas_usage){
+         
+            return redirect()->route('dashboard');
+    
+            }else{
+                return redirect()->back();
+
+    
+    
+            }
+	}
 }

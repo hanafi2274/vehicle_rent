@@ -37,7 +37,7 @@
                 <th scope="row">{{$index +1}}</th>
                 <td>{{$data->date}}</td>
                 <td>{{$data->name}}</td>
-                <td>{{$data->liter_per_day}}</td>
+                <td>{{$data->liter_per_day}} Liter</td>
                 <td>{{$data->head_office_agreement}}</td>
                 <td>{{$data->branch_office_agreement}}</td>
                 @if($data->head_office_agreement== true && $data->branch_office_agreement==true)
@@ -45,9 +45,11 @@
                 @else
                 <td>Belum disetujui</td>
                 @endif
+                  @if($data->liter_per_day== false )
                 <td>
-                    <a href=""  class="btn btn-primary btn-sm">BBM</a>
+                    <a href="{{route('gas_usageView',[$data->id ])}}"  class="btn btn-primary btn-sm">BBM</a>
                 </td>
+                @endif
 
  
             @if(Auth::guard('web')->user()->role == "head manager" || Auth::guard('web')->user()->role == "branch manager")
