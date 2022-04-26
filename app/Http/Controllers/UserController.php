@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\user;
 use Exception;
+use App\Charts\UserChart;
 class UserController extends Controller
 {
     public function login(Request $request)
@@ -41,7 +42,12 @@ class UserController extends Controller
     return redirect()->back();
     }
     public function dashboard(){
+        // $usersChart = new UserChart;
+        // $usersChart->labels(['Jan', 'Feb', 'Mar']);
+        // $usersChart->dataset('Users by trimester', 'line', [10, 25, 13]);
+        // return view('dashboard', [ 'usersChart' => $usersChart ] );
         return view('dashboard');
+       
     }
     public function logout(Request $request)
     {
