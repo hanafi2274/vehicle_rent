@@ -50,7 +50,7 @@
                 </td>
 
  
-            @if(Auth::guard('web')->user()->role == "head manager")
+            @if(Auth::guard('web')->user()->role == "head manager" || Auth::guard('web')->user()->role == "branch manager")
                 <td>
 <form method="POST" action="{{route('approveUsage')}}">
                 @csrf
